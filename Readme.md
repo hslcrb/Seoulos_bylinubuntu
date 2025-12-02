@@ -16,3 +16,11 @@ For more modern code there is Isoux fork of Linux-0.01 is compilable using NASM 
 
 https://github.com/isoux/linux-0.01
 
+# building in docker
+
+```sh
+docker build -t linux-0.01-build .
+
+docker run -it --rm -v $(pwd):/linux-0.01 linux-0.01-build make
+
+```
