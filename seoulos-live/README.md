@@ -34,6 +34,47 @@ You can apply GNOME defaults in Cubic (dconf, backgrounds, favorites). Keep thos
 
 Build from Cubic and test in QEMU.
 
+## Test the ISO in QEMU (UEFI)
+
+### 1) Install UEFI firmware (OVMF)
+
+On Ubuntu hosts:
+
+```sh
+sudo apt-get update
+sudo apt-get install -y qemu-system-x86 ovmf
+```
+
+### 2) Locate OVMF firmware files
+
+Common locations (pick the ones that exist on your system):
+
+- `/usr/share/OVMF/OVMF_CODE.fd`
+- `/usr/share/OVMF/OVMF_VARS.fd`
+- `/usr/share/OVMF/OVMF_CODE_4M.fd`
+- `/usr/share/OVMF/OVMF_VARS_4M.fd`
+
+### 3) Boot the ISO (UEFI)
+
+From the directory containing your Cubic output ISO (example name shown):
+
+```sh
+cp /usr/share/OVMF/OVMF_VARS.fd OVMF_VARS.seoulos.fd
+
+qemu-system-x86_64 \
+  -machine q35,accel=kvm:tcg \
+  -m 4096 \
+  -cpu host \
+  -smp 2 \
+  -drive if=pflash,format=raw,readonly=on,file=/usr/share/OVMF/OVMF_CODE.fd \
+  -drive if=pflash,format=raw,file=OVMF_VARS.seoulos.fd \
+  -cdrom Seoulos-22.04-live.iso \
+  -boot d \
+  -display gtk
+```
+
+If your system only provides the `*_4M.fd` files, substitute those in the command.
+
 ## What this folder provides
 
 - `branding/`:
