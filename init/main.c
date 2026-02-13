@@ -36,6 +36,7 @@ static inline _syscall0(int,sync)
 static char printbuf[1024];
 
 extern int vsprintf();
+extern int printk(const char * fmt, ...);
 extern void init(void);
 extern void hd_init(void);
 extern long kernel_mktime(struct tm * tm);
@@ -84,6 +85,7 @@ int main(void)		/* This really IS void, no error here. */
  */
 	time_init();
 	tty_init();
+	printk("Seoulos kernel start\n\r");
 	trap_init();
 	sched_init();
 	buffer_init();

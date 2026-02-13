@@ -1,0 +1,11 @@
+NAME="Seoulos"
+VERSION="22.04 LTS (Live) (Ubuntu)"
+ID=seoulos
+ID_LIKE=ubuntu
+PRETTY_NAME="Seoulos 22.04 LTS (Live) (Ubuntu)"
+VERSION_ID="22.04"
+HOME_URL="https://github.com/"
+SUPPORT_URL="https://github.com/"
+BUG_REPORT_URL="https://github.com/"
+PRIVACY_POLICY_URL="https://ubuntu.com/legal/data-privacy"
+UBUNTU_CODENAME=jammy

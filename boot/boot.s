@@ -73,7 +73,7 @@ go:	mov	ax,cs
 	xor	bh,bh
 	int	0x10
 	
-	mov	cx,#24
+	mov	cx,#25
 	mov	bx,#0x0007	; page 0, attribute 7 (normal)
 	mov	bp,#msg1
 	mov	ax,#0x1301	; write string, move cursor
@@ -318,7 +318,7 @@ gdt_48:
 	
 msg1:
 	.byte 13,10
-	.ascii "Loading system ..."
+	.ascii "Loading Seoulos ..."
 	.byte 13,10,13,10
 
 .text
